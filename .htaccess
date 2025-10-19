@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /api/alunos/
+
+# Route: /api/alunos/{matricula}/historico -> historico.php
+RewriteRule ^([^/]+)/historico/?$ historico.php?matricula=$1 [L,QSA]
