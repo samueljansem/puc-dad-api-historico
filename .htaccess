@@ -1,10 +1,10 @@
 RewriteEngine On
-RewriteBase /api/alunos/
+RewriteBase /
 
 # Enable CORS for API requests
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+    Header set Access-Control-Allow-Methods "POST, GET, PUT, PATCH, DELETE, OPTIONS"
     Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 </IfModule>
 
@@ -17,7 +17,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Route: /api/alunos/{matricula}/historico -> historico.php
-RewriteRule ^([^/]+)/historico/?$ historico.php?matricula=$1 [L,QSA]
+RewriteRule ^api/alunos/([^/]+)/historico/?$ historico.php?matricula=$1 [L,QSA]
 
 # Enable directory listing prevention
 Options -Indexes
