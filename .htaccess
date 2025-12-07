@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /api/alunos/
+RewriteBase /alunos/
 
 # Enable CORS for API requests
 <IfModule mod_headers.c>
@@ -16,7 +16,7 @@ RewriteRule ^(.*)$ $1 [R=200,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Route: /api/alunos/{matricula}/historico -> historico.php
+# Route: /alunos/{matricula}/historico -> historico.php
 RewriteRule ^([^/]+)/historico/?$ historico.php?matricula=$1 [L,QSA]
 
 # Enable directory listing prevention
