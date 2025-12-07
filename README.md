@@ -4,7 +4,7 @@ API para gerenciamento de historicos escolares de alunos.
 
 ## Endpoints Disponiveis
 
-Todos os endpoints seguem o padrao: `/api/alunos/{matricula/historico`
+Todos os endpoints seguem o padrao: `/api/alunos/{matricula}/historico`
 
 ### GET - Consultar Historico
 
