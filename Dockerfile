@@ -3,8 +3,8 @@ FROM php:8.2-apache
 # Install MySQL PDO extension
 RUN docker-php-ext-install pdo pdo_mysql
 
-# Enable Apache mod_rewrite for cleaner URLs
-RUN a2enmod rewrite
+# Enable Apache modules for rewrite and headers
+RUN a2enmod rewrite headers
 
 # Configure Apache to serve from /var/www/html
 WORKDIR /var/www/html
