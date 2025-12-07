@@ -1,13 +1,19 @@
 <?php
 class AlunoValidator
 {
-  private $habilitarValidacao = true;
+  private $habilitarValidacao;
 
   private $alunosApiUrl;
 
   public function __construct()
   {
-    $this->alunosApiUrl = 'https://alunosapi.infinityfreeapp.com/api/alunos';
+    $this->habilitarValidacao = filter_var(
+      getenv('HABILITAR_VALIDACAO') !== false ? getenv('HABILITAR_VALIDACAO') : 'true',
+      FILTER_VALIDATE_BOOLEAN
+    );
+    $this->alunosApiUrl = getenv('ALUNOS_API_URL') !== false
+      ? getenv('ALUNOS_API_URL')
+      : 'https://alunosapi.infinityfreeapp.com/api/alunos';
   }
 
   public function exists($matricula)
